@@ -1,0 +1,18 @@
+---
+import MainLayout from '../layouts/main-layout.astro'
+import Moto from '../modules/index/moto.astro'
+import Steps from '../modules/index/steps.astro'
+import Services from '../modules/index/services.tsx'
+import Blogs from '../components/blogs.astro'
+import Hero from '../modules/index/hero'
+---
+
+<MainLayout>
+  <div class='flex flex-col gap-20'>
+    <Hero client:load />
+    <Moto />
+    <Services client:load />
+    <Steps />
+    <Blogs />
+  </div>
+</MainLayout>

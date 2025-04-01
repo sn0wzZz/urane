@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets'
+import Button from '../../components/ui/button.astro'
+---
+
+<sectio class='flex flex-col gap-16 lg:flex-row justify-between w-full'>
+  <!-- Left side -->
+  <div class='space-y-16 max-w-[624px] mx-auto lg:mx-0'>
+    <h2 class='headline-h2'>Помагаме на бизнесите в избора на персонал</h2>
+
+    <div class='space-y-4'>
+      <p class='max-w-[489px] text-muted-foreground'>
+        Съвременната динамика на пазара на труда и липсата на хора, които искат
+        да работят, все по-често изправя работодателите пред решението за
+        наемане на квалифицирани и неквалифицирани кадри от държави извън
+        Европейския съюз. Ние, от Уране, ще намерим за вас подходящите
+        работници/служители от Узбекистан, като осъществим за вас подбор,
+        съвместно с правителството на Узбекистан.
+      </p>
+
+      <Button variant='secondary'>Научете още за нас</Button>
+    </div>
+  </div>
+  <!-- Right side -->
+
+  <div
+    class='max-w-[600px] max-h-[400px] rounded-lg overflow-hidden mx-auto lg:mx-0'
+  >
+    <Image
+      src={'/index/moto.png'}
+      alt={'moto'}
+      width={600}
+      height={400}
+      class={'w-full h-full   object-cover'}
+    />
+  </div>
+</sectio>

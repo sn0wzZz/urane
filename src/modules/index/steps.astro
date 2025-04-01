@@ -1,0 +1,126 @@
+---
+import { Image } from 'astro:assets'
+
+const steps = [
+  {
+    title: 'Кандидатстване',
+    description:
+      'Това е описателен текст за тази стъпка, ще бъде нужно да се добави малко повече информация от няколко изречения, за да бъде ясно на гледащите сайта какви са вашите стъпки. Тази част може би е подходяща повече за бизнесът.',
+  },
+  {
+    title: 'Интервю',
+    description:
+      'Това е описателен текст за тази стъпка, ще бъде нужно да се добави малко повече информация от няколко изречения, за да бъде ясно на гледащите сайта какви са вашите стъпки. Тази част може би е подходяща повече за бизнесът.',
+  },
+  {
+    title: 'Подготовка на виза и документи',
+    description:
+      'Това е описателен текст за тази стъпка, ще бъде нужно да се добави малко повече информация от няколко изречения, за да бъде ясно на гледащите сайта какви са вашите стъпки. Тази част може би е подходяща повече за бизнесът.',
+  },
+  {
+    title: 'Започване на работа',
+    description:
+      'Това е описателен текст за тази стъпка, ще бъде нужно да се добави малко повече информация от няколко изречения, за да бъде ясно на гледащите сайта какви са вашите стъпки. Тази част може би е подходяща повече за бизнесът.',
+  },
+]
+---
+
+<section class='flex flex-col gap-16 lg:flex-row justify-between w-full'>
+  <!-- Left side -->
+  <div class='space-y-16 mx-auto lg:mx-0'>
+    <div class='space-y-4'>
+      <h3 class='headline-h2'>Стъпки и процес</h3>
+      <p class='body-16-medium text-muted-foreground'>
+        Canlife now comes with a range of services specifically designed to make
+        your life easier.
+      </p>
+    </div>
+
+    <div class='space-y-4 max-w-[660px]' id='faq-container'>
+      {
+        steps.map((step, index) => (
+          <div class='border border-input p-6 rounded-5xl '>
+            <button
+              class='faq-question w-full flex justify-between cursor-pointer  items-center focus:outline-none'
+              aria-expanded='false'
+            >
+              <span class='body-18-semibold text-left'>
+                {index + 1}. {step.title}
+              </span>
+              <div
+                class='relative w-3.5 h-3.5 flex-shrink-0 bg-secondary p-5 rounded-full border border-input'
+                id='faq-trigger'
+              >
+                <span class='absolute top-1/2 left-1/3 w-1/3 h-0.5 bg-foreground transform -translate-y-1/2 transition-transform duration-300' />
+                <span class='absolute  left-1/2 w-0.5 h-1/3 top-1/3 bg-foreground transform -translate-x-1/2 transition-transform duration-300 vertical-line' />
+              </div>
+            </button>
+            <div class='faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out'>
+              <div class='pb-5'>
+                <p class='body-16-regular'>{step.description}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <!-- Right side -->
+
+  <div
+    class='max-w-[6600px] max-h-[495px] self-end rounded-lg overflow-hidden mx-auto lg:mx-0'
+  >
+    <Image
+      src={'/index/steps.svg'}
+      alt={'moto'}
+      width={600}
+      height={400}
+      class={'w-full h-full   object-cover'}
+    />
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqContainer = document.getElementById('faq-container')
+    const faqQuestions = faqContainer?.querySelectorAll('.faq-question')
+
+    faqQuestions?.forEach((question) => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement as HTMLElement
+        const answer = question.nextElementSibling as HTMLElement
+        const trigger = question.querySelector('#faq-trigger') as HTMLElement
+        const verticalLine = question.querySelector(
+          '.vertical-line'
+        ) as HTMLElement
+        const isExpanded = question.getAttribute('aria-expanded') === 'true'
+
+        // Close all FAQs
+        faqQuestions?.forEach((q) => {
+          if (q !== question) {
+            q.setAttribute('aria-expanded', 'false')
+            const nextEl = q.nextElementSibling as HTMLElement
+            if (nextEl) nextEl.style.maxHeight = '0'
+            const vLine = q.querySelector('.vertical-line') as HTMLElement
+            if (vLine) vLine.style.transform = 'translateX(-50%) scaleY(1)'
+          }
+        })
+
+        // Toggle current FAQ
+        if (isExpanded) {
+          question.setAttribute('aria-expanded', 'false')
+          faqItem.classList.remove('!bg-secondary')
+          answer.style.maxHeight = '0'
+          trigger.classList.remove('!bg-secondary-700')
+          verticalLine.style.transform = 'translateX(-50%) scaleY(1)'
+        } else {
+          question.setAttribute('aria-expanded', 'true')
+          faqItem.classList.add('!bg-secondary')
+          answer.style.maxHeight = answer.scrollHeight + 'px'
+          trigger.classList.add('!bg-secondary-700')
+          verticalLine.style.transform = 'translateX(-50%) scaleY(0)'
+        }
+      })
+    })
+  })
+</script>
