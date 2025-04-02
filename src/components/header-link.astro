@@ -13,7 +13,7 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '')
 <a
   href={href}
   class:list={[
-    cn('hover:bg-muted px-3 py-2 rounded-full ', className),
+    cn('hover:bg-secondary-700/50 px-3 py-2 rounded-full ', className),
     { active: isActive },
   ]}
   {...props}
@@ -23,6 +23,6 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '')
 
 <style>
   a.active {
-    background: var(--color-muted);
+    background: var(--color-secondary-700);
   }
 </style>

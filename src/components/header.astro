@@ -15,7 +15,7 @@ import Logo from './logo.astro'
       <HeaderLink href='/about'>За нас</HeaderLink>
       <HeaderLink href='/blogs'>Блог</HeaderLink>
       <HeaderLink href='/services'>Услуги</HeaderLink>
-      <HeaderLink href='/ads'>Кариери</HeaderLink>
+      <HeaderLink href='/careers'>Кариери</HeaderLink>
       <HeaderLink href='/business'>За бизнес</HeaderLink>
       <HeaderLink href='/contact'>Контакти</HeaderLink>
     </div>
@@ -46,16 +46,16 @@ import Logo from './logo.astro'
   <!-- Mobile Menu Overlay -->
   <div
     id='mobile-menu'
-    class='fixed inset-x-0 top-0 transform -translate-y-full transition-transform duration-300 ease-in-out bg-background w-full h-screen z-40 pt-20 px-4'
+    class='fixed inset-x-0 top-0 max-h-0 h-full overflow-hidden transition-all duration-300 ease-in-out bg-background w-full z-40'
   >
     <div
-      class='flex flex-col space-y-6 text-lg font-medium max-w-[500px] mx-auto p-4'
+      class='flex flex-col space-y-6 text-lg font-medium max-w-[500px] mx-auto p-4 pt-20'
     >
       <HeaderLink href='/'>Начало</HeaderLink>
       <HeaderLink href='/about'>За нас</HeaderLink>
       <HeaderLink href='/blogs'>Блог</HeaderLink>
       <HeaderLink href='/services'>Услуги</HeaderLink>
-      <HeaderLink href='/ads'>Кариери</HeaderLink>
+      <HeaderLink href='/careers'>Кариери</HeaderLink>
       <HeaderLink href='/business'>За бизнес</HeaderLink>
       <HeaderLink href='/contact'>Контакти</HeaderLink>
       <Button>Заявка</Button>
@@ -77,18 +77,20 @@ import Logo from './logo.astro'
       // Toggle aria-expanded attribute
       menuToggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true')
 
-      // Toggle mobile menu visibility
+      // Toggle mobile menu visibility with height animation
       if (mobileMenu) {
         if (isExpanded) {
-          mobileMenu.classList.remove('translate-y-0')
-          mobileMenu.classList.add('-translate-y-full')
+          // Close menu - animate height to 0
+          mobileMenu.style.maxHeight = '0'
+          mobileMenu.classList.remove('pt-20') // Remove padding when closed
         } else {
-          mobileMenu.classList.remove('-translate-y-full')
-          mobileMenu.classList.add('translate-y-0')
+          // Open menu - animate to full viewport height
+          mobileMenu.style.maxHeight = '100vh'
+          mobileMenu.classList.add('pt-20') // Add padding when open
         }
       }
 
-      // Animate hamburger to X
+      // Keep your existing hamburger animation
       if (line1 && line3 && header) {
         if (isExpanded) {
           // Reset to hamburger

@@ -4,7 +4,8 @@ import Pagination from '../../../../components/ui/pagination.astro'
 import MainLayout from '../../../../layouts/main-layout.astro'
 import BlogCard from '../../../../components/blog-card.astro'
 import { POSTS_PER_PAGE } from '../../../../constants'
-import FieldFilter from '../../../../components/field-filter.astro'
+import Filter from '../../../../components/filter.astro'
+
 
 export async function getStaticPaths() {
   const allCategories = await getCollection('fields')
@@ -51,14 +52,18 @@ export async function getStaticPaths() {
 const { category, posts, currentPage, totalPages } = Astro.props
 ---
 
-<MainLayout title={`${category.data.name} - Page ${currentPage} - Ad`}>
+<MainLayout title={`${category.data.name} - Страница ${currentPage} - Кариери`}>
   <main class='container mx-auto px-4 py-12'>
-    <FieldFilter class='justify-center w-full' />
+    <Filter
+      pageName='careers'
+      handleName='fields'
+      class='justify-center w-full'
+    />
 
     <h1 class='text-4xl font-bold mb-8'>{category.data.name}</h1>
 
     <ul class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-      {posts.map((post) => <BlogCard {post} content='ads' />)}
+      {posts.map((post) => <BlogCard {post} content='careers' />)}
     </ul>
 
     <Pagination

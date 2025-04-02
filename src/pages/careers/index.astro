@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content'
 import BlogCard from '../../components/blog-card.astro'
-import FieldFilter from '../../components/field-filter.astro'
 import Pagination from '../../components/ui/pagination.astro'
 import { POSTS_PER_PAGE } from '../../constants'
 import MainLayout from '../../layouts/main-layout.astro'
+import Filter from '../../components/filter.astro'
 
 const allPosts = await getCollection('ads')
 const sortedPosts = allPosts.sort(
@@ -21,14 +21,18 @@ const posts = sortedPosts.slice(0, postsPerPage)
 console.log(posts)
 ---
 
-<MainLayout title='Ads'>
+<MainLayout title='Кариери'>
   <main class='container mx-auto px-4 py-12'>
-    <FieldFilter class='justify-center w-full' />
+    <Filter
+      pageName='careers'
+      handleName='fields'
+      class='justify-center w-full'
+    />
 
-    <h1 class='text-4xl font-bold mb-8'>All ads</h1>
+    <h1 class='text-4xl font-bold mb-8'>Всички обяви</h1>
 
     <ul class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-      {posts.map((post) => <BlogCard {post} content='ads' />)}
+      {posts.map((post) => <BlogCard {post} content='careers' />)}
     </ul>
 
     {

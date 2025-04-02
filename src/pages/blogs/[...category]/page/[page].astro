@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content'
-import Pagination from '../../../../components/ui/pagination.astro'
-import MainLayout from '../../../../layouts/main-layout.astro'
 import BlogCard from '../../../../components/blog-card.astro'
-import CategoryFilter from '../../../../components/category-filter.astro'
+import Filter from '../../../../components/filter.astro'
+import Pagination from '../../../../components/ui/pagination.astro'
 import { POSTS_PER_PAGE } from '../../../../constants'
+import MainLayout from '../../../../layouts/main-layout.astro'
 
 export async function getStaticPaths() {
   const allCategories = await getCollection('categories')
@@ -51,9 +51,13 @@ export async function getStaticPaths() {
 const { category, posts, currentPage, totalPages } = Astro.props
 ---
 
-<MainLayout title={`${category.data.name} - Page ${currentPage} - Blog`}>
+<MainLayout title={`${category.data.name} - Страница ${currentPage} - Блог`}>
   <main class='container mx-auto px-4 py-12'>
-    <CategoryFilter class='justify-center w-full' />
+    <Filter
+      pageName='blogs'
+      handleName='categories'
+      class='justify-center w-full'
+    />
 
     <h1 class='text-4xl font-bold mb-8'>{category.data.name}</h1>
 

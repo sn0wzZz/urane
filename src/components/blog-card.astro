@@ -8,14 +8,14 @@ import { getCollection } from 'astro:content'
 
 interface Props {
   post: CollectionEntry<'blogs'> | CollectionEntry<'ads'>
-  content?: 'ads' | 'blogs'
+  content?: 'careers' | 'blogs'
 }
 
 const { post, content = 'blogs' } = Astro.props
 
 const category = (
   await getCollection(
-    content == 'ads' ? 'fields' : 'categories',
+    content == 'careers' ? 'fields' : 'categories',
     // @ts-expect-error - Bad stuff
     (entry) => entry.data.id == (post?.data?.category ?? post?.data?.field)?.id
   )
@@ -29,14 +29,14 @@ const category = (
         <img
           src={post.data.image}
           alt={post.data.title}
-          class='w-full h-[260px] object-cover rounded-lg'
+          class='w-full h-[260px] md:h-[200px] xl:h-[260px] object-cover rounded-lg'
         />
       )
     }
     <CardContent>
       <Badge>{category?.name}</Badge>
       <h2 class='headline-h4 text-muted-foreground-theme'>{post.data.title}</h2>
-      <Button variant='secondary'>Read more</Button>
+      <Button variant='secondary'>Прочети</Button>
     </CardContent>
   </a>
 </Card>

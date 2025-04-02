@@ -56,9 +56,9 @@ const defaultSeo: SeoProps = {
     <link rel='sitemap' href='/sitemap-index.xml' />
     <meta name='generator' content={Astro.generator} />
   </head>
-  <body class={cn('relative w-full mx-auto', className)}>
+  <body class='relative w-full mx-auto'>
     <Header />
-    <main class='container mx-auto py-20 lg:py-32'>
+    <main class={cn('container mx-auto py-20 lg:py-32', className)}>
       <slot />
     </main>
     <Footer />

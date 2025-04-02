@@ -46,7 +46,7 @@ export default function Hero() {
   const horizontal = useTransform(rotate, (value) => -value)
 
   return (
-    <div className='relative w-full min-h-[600px] md:min-h-[750px] flex items-center justify-center overflow-hidden  z-10'>
+    <div className='relative min-h-[600px] md:min-h-[800px] flex items-center justify-center overflow-hidden  z-10'>
       <div
         className='inset-0 absolute w-[245px] h-[245px] md:w-[350px] md:h-[350px] lg:w-[550px] lg:h-[550px] rounded-full border border-secondary-700 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
                     before:content-[""] before:absolute before:w-[350px] before:h-[350px] md:before:w-[500px] md:before:h-[500px] lg:before:w-[705px] lg:before:h-[705px] 
@@ -59,7 +59,7 @@ export default function Hero() {
         {/* Orbital animation container that rotates based on scroll */}
         <motion.div
           ref={orbitRef}
-          className='absolute inset-0'
+          className='absolute inset-0 hidden xl:block'
           style={{ rotate }}
         >
           {/* Testimonial bubbles positioned at different points on the orbit */}
@@ -67,8 +67,8 @@ export default function Hero() {
             // Calculate position on the circle
             const angle = (index / testimonials.length) * Math.PI * 2
             const radius = 340 // Adjust based on your circle size
-            const x = Math.cos(angle) * radius *.9
-            const y = Math.sin(angle) * radius *1.6
+            const x = Math.cos(angle) * radius 
+            const y = Math.sin(angle) * radius * 1.6
 
             
 
@@ -77,7 +77,7 @@ export default function Hero() {
                 key={index}
                 className='absolute'
                 style={{
-                  left: `calc(16% + ${x}px)`,
+                  left: `calc(17% + ${x}px)`,
                   top: `calc(55% + ${y}px)`,
                   transform: 'translate(-50%, -50%)',
                   rotate: horizontal,
@@ -113,7 +113,7 @@ export default function Hero() {
       </div>
 
       {/* Hero content */}
-      <div className='relative z-10 text-center max-w-4xl mx-auto px-4 mt-36'>
+      <div className='relative z-10 text-center max-w-4xl mx-auto px-4 lg:mt-36'>
         <motion.h1
           className='display-main mb-6'
           initial={{ opacity: 0, y: 20 }}

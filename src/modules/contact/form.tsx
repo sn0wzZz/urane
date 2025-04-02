@@ -118,50 +118,50 @@ export default function Form() {
 
   const form = useForm({
     defaultValues: {
-      organizationName: 'test@test.com',
-      mainActivities: 'test@test.com',
-      address: 'test@test.com',
-      phone: 'test@test.com',
-      email: 'test@test.com',
-      website: 'test@test.com',
-      managerFullName: 'test@test.com',
-      managerPosition: 'test@test.com',
-      contactFullName: 'test@test.com',
-      contactPosition: 'test@test.com',
-      contactPhone: 'test@test.com',
-      contactEmail: 'test@test.com',
-      jobPosition: 'test@test.com',
+      organizationName: '',
+      mainActivities: '',
+      address: '',
+      phone: '',
+      email: '',
+      website: '',
+      managerFullName: '',
+      managerPosition: '',
+      contactFullName: '',
+      contactPosition: '',
+      contactPhone: '',
+      contactEmail: '',
+      jobPosition: '',
       requiredWorkers: 1,
-      responsibilities: 'test@test.com',
-      employmentType: 'test@test.com',
-      schedule: 'test@test.com',
-      grossMonthlyIncome: 'test@test.com',
-      taxDeductions: 'test@test.com',
-      netSalary: 'test@test.com',
-      bonuses: 'test@test.com',
-      probationPeriod: 'test@test.com',
+      responsibilities: '',
+      employmentType: '',
+      schedule: '',
+      grossMonthlyIncome: '',
+      taxDeductions: '',
+      netSalary: '',
+      bonuses: '',
+      probationPeriod: '',
       candidateRequirements: {
-        genderAgeMaritalStatus: 'test@test.com',
-        education: 'test@test.com',
-        experience: 'test@test.com',
-        personalQualities: 'test@test.com',
-        healthRequirements: 'test@test.com',
+        genderAgeMaritalStatus: '',
+        education: '',
+        experience: '',
+        personalQualities: '',
+        healthRequirements: '',
       },
       socialPackage: {
-        visaCosts: 'test@test.com',
-        transportCosts: 'test@test.com',
-        airportTransfer: 'test@test.com',
-        workPermitAssistance: 'test@test.com',
-        accommodationCosts: 'test@test.com',
-        foodCosts: 'test@test.com',
-        trainingCosts: 'test@test.com',
-        commuteCosts: 'test@test.com',
-        healthInsurance: 'test@test.com',
-        otherInsurance: 'test@test.com',
+        visaCosts: '',
+        transportCosts: '',
+        airportTransfer: '',
+        workPermitAssistance: '',
+        accommodationCosts: '',
+        foodCosts: '',
+        trainingCosts: '',
+        commuteCosts: '',
+        healthInsurance: '',
+        otherInsurance: '',
       },
-      languageSkills: 'test@test.com',
-      signatoryPosition: 'test@test.com',
-      signatoryFullName: 'test@test.com',
+      languageSkills: '',
+      signatoryPosition: '',
+      signatoryFullName: '',
     } as ContactForm,
     onSubmit: async ({ value }: { value: ContactForm }) => {
       // Convert form data to text format
@@ -271,7 +271,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>Име на организацията</Label>
               <Input
                 id={field.name}
@@ -293,7 +293,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>Основна дейности</Label>
               <Input
                 id={field.name}
@@ -315,7 +315,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Адрес</Label>
               <Input
                 id={field.name}
@@ -337,7 +337,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Телефон</Label>
               <Input
                 id={field.name}
@@ -363,7 +363,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Електронна поща</Label>
               <Input
                 id={field.name}
@@ -380,7 +380,7 @@ export default function Form() {
 
         <form.Field name='website'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-4 lg:col-start-2'>
+            <div className='flex flex-col gap-4 colspan-full lg:col-span-4 lg:col-start-2'>
               <Label htmlFor={field.name}>Уеб сайт</Label>
               <Input
                 id={field.name}
@@ -446,7 +446,7 @@ export default function Form() {
               }}
             >
               {(field) => (
-                <div className='flex flex-col gap-4 col-span-3 '>
+                <div className='flex flex-col gap-4 col-span-full lg:col-span-3 '>
                   <Label htmlFor={field.name}>Пълно име</Label>
                   <Input
                     id={field.name}
@@ -470,7 +470,7 @@ export default function Form() {
               }}
             >
               {(field) => (
-                <div className='flex flex-col gap-4  col-span-3'>
+                <div className='flex flex-col gap-4  col-span-full lg:col-span-3'>
                   <Label htmlFor={field.name}>Длъжност</Label>
                   <Input
                     id={field.name}
@@ -499,7 +499,7 @@ export default function Form() {
               }}
             >
               {(field) => (
-                <div className='flex flex-col gap-4 col-span-3'>
+                <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
                   <Label htmlFor={field.name}>Пълно име</Label>
                   <Input
                     id={field.name}
@@ -523,7 +523,7 @@ export default function Form() {
               }}
             >
               {(field) => (
-                <div className='flex flex-col gap-4 col-span-3'>
+                <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
                   <Label htmlFor={field.name}>Длъжност</Label>
                   <Input
                     id={field.name}
@@ -547,7 +547,7 @@ export default function Form() {
               }}
             >
               {(field) => (
-                <div className='flex flex-col gap-4 col-span-3'>
+                <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
                   <Label htmlFor={field.name}>Телефон</Label>
                   <Input
                     id={field.name}
@@ -574,7 +574,7 @@ export default function Form() {
               }}
             >
               {(field) => (
-                <div className='flex flex-col gap-4 col-span-3'>
+                <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
                   <Label htmlFor={field.name}>Електронна поща</Label>
                   <Input
                     id={field.name}
@@ -642,7 +642,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Длъжност</Label>
               <Input
                 id={field.name}
@@ -668,7 +668,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Необходим брой работници</Label>
               <Input
                 id={field.name}
@@ -694,7 +694,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3 row-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3 row-span-2'>
               <Label htmlFor={field.name}>Функционални отговорности</Label>
               <Textarea
                 id={field.name}
@@ -717,7 +717,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>Наемане на работа</Label>
               <Input
                 id={field.name}
@@ -739,7 +739,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>График</Label>
               <Input
                 id={field.name}
@@ -762,7 +762,7 @@ export default function Form() {
             }}
           >
             {(field) => (
-              <div className='flex flex-col gap-4 col-span-2'>
+              <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
                 <Label htmlFor={field.name}>Месечен доход (брутен)</Label>
                 <Input
                   id={field.name}
@@ -784,7 +784,7 @@ export default function Form() {
             }}
           >
             {(field) => (
-              <div className='flex flex-col gap-4 col-span-2'>
+              <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
                 <Label htmlFor={field.name}>Данъчни удръжки</Label>
                 <Input
                   id={field.name}
@@ -806,7 +806,7 @@ export default function Form() {
             }}
           >
             {(field) => (
-              <div className='flex flex-col gap-4 col-span-2'>
+              <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
                 <Label htmlFor={field.name}>Ниво на заплата (нето)</Label>
                 <Input
                   id={field.name}
@@ -823,7 +823,7 @@ export default function Form() {
 
         <form.Field name='bonuses'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>Бонуси (ако има)</Label>
               <Input
                 id={field.name}
@@ -847,7 +847,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>
                 Продължителност на изпитателния срок
               </Label>
@@ -911,7 +911,7 @@ export default function Form() {
       <CardContent className='grid grid-cols-1 lg:grid-cols-6 gap-8 '>
         <form.Field name='candidateRequirements.genderAgeMaritalStatus'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>
                 Пол, възраст, семейно положение
               </Label>
@@ -935,7 +935,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>Образование</Label>
               <Input
                 id={field.name}
@@ -957,7 +957,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>Опит</Label>
               <Input
                 id={field.name}
@@ -979,7 +979,7 @@ export default function Form() {
           }}
         >
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3 row-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3 row-span-2'>
               <Label htmlFor={field.name}>Личностни качества</Label>
               <Textarea
                 id={field.name}
@@ -996,7 +996,7 @@ export default function Form() {
 
         <form.Field name='candidateRequirements.healthRequirements'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>Здравни изисквания</Label>
               <Input
                 id={field.name}
@@ -1057,7 +1057,7 @@ export default function Form() {
       <CardContent className='grid grid-cols-1 md:grid-cols-6 gap-8'>
         <form.Field name='socialPackage.visaCosts'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Разходи за виза</Label>
               <Input
                 id={field.name}
@@ -1073,7 +1073,7 @@ export default function Form() {
 
         <form.Field name='socialPackage.transportCosts'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Транспортни разходи</Label>
               <Input
                 id={field.name}
@@ -1089,7 +1089,7 @@ export default function Form() {
 
         <form.Field name='socialPackage.airportTransfer'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Трансфер от летището</Label>
               <Input
                 id={field.name}
@@ -1105,7 +1105,7 @@ export default function Form() {
 
         <form.Field name='socialPackage.workPermitAssistance'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>
                 Съдействие за разрешително за работа
               </Label>
@@ -1123,7 +1123,7 @@ export default function Form() {
 
         <form.Field name='socialPackage.accommodationCosts'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>Разходи за настаняване</Label>
               <Input
                 id={field.name}
@@ -1139,7 +1139,7 @@ export default function Form() {
 
         <form.Field name='socialPackage.foodCosts'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Разходи за храна</Label>
               <Input
                 id={field.name}
@@ -1155,7 +1155,7 @@ export default function Form() {
 
         <form.Field name='socialPackage.trainingCosts'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Разходи за обучение</Label>
               <Input
                 id={field.name}
@@ -1171,7 +1171,7 @@ export default function Form() {
 
         <form.Field name='socialPackage.commuteCosts'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-2'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-2'>
               <Label htmlFor={field.name}>Разходи за пътуване до работа</Label>
               <Input
                 id={field.name}
@@ -1187,7 +1187,7 @@ export default function Form() {
 
         <form.Field name='socialPackage.healthInsurance'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>Здравна застраховка</Label>
               <Input
                 id={field.name}
@@ -1203,7 +1203,7 @@ export default function Form() {
 
         <form.Field name='socialPackage.otherInsurance'>
           {(field) => (
-            <div className='flex flex-col gap-4 col-span-3'>
+            <div className='flex flex-col gap-4 col-span-full lg:col-span-3'>
               <Label htmlFor={field.name}>Други застраховки</Label>
               <Input
                 id={field.name}
@@ -1372,7 +1372,7 @@ export default function Form() {
         renderSuccess()
       ) : (
         <>
-          <div className='mb-10'>
+          <div className='mb-10 hidden lg:block'>
             {/* Progress bar with icons */}
             <div className='relative mb-8 max-w-[80%] mx-auto'>
               {/* Base progress line (background) */}
@@ -1436,6 +1436,110 @@ export default function Form() {
                     <span className='text-xs mt-2'>{label}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+
+          <div className='mb-10  lg:hidden block'>
+            {/* Progress bar with icons */}
+            <div className='relative mb-8 mx-auto max-w-full md:max-w-[80%]'>
+              {/* Base progress line (background) - hidden on mobile, visible on larger screens */}
+              <div
+                className='absolute top-5 left-0 right-0 h-1 bg-muted hidden md:block'
+                style={{
+                  left: '20px',
+                  right: '20px',
+                }}
+              ></div>
+
+              {/* Active progress line - hidden on mobile, visible on larger screens */}
+              <div
+                className='absolute top-5 h-1 bg-primary transition-all duration-300 hidden md:block'
+                style={{
+                  left: '20px',
+                  width:
+                    currentStep === 1
+                      ? 0
+                      : `calc(${((currentStep - 1) / 5) * 100}% - 55px)`,
+                }}
+              ></div>
+
+              {/* Step icons */}
+              <div className='relative flex flex-wrap md:flex-nowrap justify-between'>
+                {/* Mobile indicator - only visible on small screens */}
+                <div className='w-full text-center mb-4 md:hidden'>
+                  <span className='text-sm font-medium'>
+                    Стъпка {currentStep} от 6
+                  </span>
+                </div>
+
+                {[
+                  { step: 1, icon: <Building size={20} />, label: 'Клиент' },
+                  { step: 2, icon: <Users size={20} />, label: 'Контакти' },
+                  { step: 3, icon: <Briefcase size={20} />, label: 'Позиция' },
+                  {
+                    step: 4,
+                    icon: <UserCheck size={20} />,
+                    label: 'Изисквания',
+                  },
+                  {
+                    step: 5,
+                    icon: <BookUp2 size={20} />,
+                    label: 'Социален пакет',
+                  },
+                  {
+                    step: 6,
+                    icon: <Languages size={20} />,
+                    label: 'Финални детайли',
+                  },
+                ].map(({ step, icon, label }) => (
+                  <div
+                    key={step}
+                    className={`flex flex-col items-center ${
+                      // On mobile, only show current step and adjacent steps
+                      step < currentStep - 1 || step > currentStep + 1
+                        ? 'hidden md:flex'
+                        : 'flex'
+                    } ${
+                      // Adjust spacing on mobile
+                      step === currentStep ? 'mx-4 md:mx-0' : 'mx-1 md:mx-0'
+                    }`}
+                  >
+                    <div className='bg-secondary px-2 md:px-4 z-10 relative'>
+                      <div
+                        className={`w-8 h-8 md:w-10 md:h-10 rounded-full border border-input flex items-center justify-center ${
+                          currentStep >= step
+                            ? 'bg-secondary-700 text-foreground'
+                            : 'bg-background text-muted-foreground'
+                        } ${currentStep === step ? 'scale-110' : ''}`}
+                      >
+                        {icon}
+                      </div>
+                    </div>
+                    <span className='body-12-regular text-muted-foreground mt-2 text-[10px] md:text-xs'>
+                      {step === currentStep ? `Стъпка ${step}` : ''}
+                    </span>
+                    <span
+                      className={`text-[10px] md:text-xs mt-1 ${
+                        step === currentStep
+                          ? 'font-medium'
+                          : 'hidden md:inline-block'
+                      }`}
+                    >
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile progress bar */}
+              <div className='w-full mt-4 bg-muted h-1 rounded-full md:hidden'>
+                <div
+                  className='bg-primary h-1 rounded-full transition-all duration-300'
+                  style={{
+                    width: `${((currentStep - 1) / 5) * 100}%`,
+                  }}
+                ></div>
               </div>
             </div>
           </div>
