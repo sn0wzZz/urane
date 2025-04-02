@@ -20,7 +20,8 @@ const {
 const currentPath = Astro.url.pathname
 console.log('currentPath', currentPath)
 const isAllActive =
-  currentPath === `/${pageName}` || currentPath.startsWith(`/${pageName}/page/`)
+  currentPath.endsWith(`/${pageName}`) ||
+  currentPath.startsWith(`/${pageName}/page/`)
 
 const categories = await getCollection(handleName)
 
