@@ -46,7 +46,7 @@ export default function Hero() {
   const horizontal = useTransform(rotate, (value) => -value)
 
   return (
-    <div className='relative min-h-[600px] md:min-h-[800px] flex items-center justify-center overflow-hidden  z-10'>
+    <div className='relative min-h-[600px] md:min-h-[800px] flex items-center justify-center z-10'>
       <div
         className='inset-0 absolute w-[245px] h-[245px] md:w-[350px] md:h-[350px] lg:w-[550px] lg:h-[550px] rounded-full border border-secondary-700 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
                     before:content-[""] before:absolute before:w-[350px] before:h-[350px] md:before:w-[500px] md:before:h-[500px] lg:before:w-[705px] lg:before:h-[705px] 
